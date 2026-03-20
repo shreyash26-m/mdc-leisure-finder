@@ -65,6 +65,28 @@ export default function Layout({ children, title = "MDC Leisure Finder", flash }
         </aside>
       )}
 
+      {/* Mobile bottom navigation */}
+      {session && (
+        <nav className="bottom-nav">
+          <Link href="/dashboard" className={ep === "/dashboard" ? "active" : ""}>
+            <span className="nav-icon">⊡</span>
+            Dashboard
+          </Link>
+          <Link href="/members" className={ep.startsWith("/members") ? "active" : ""}>
+            <span className="nav-icon">◉</span>
+            Members
+          </Link>
+          <Link href="/finder" className={ep === "/finder" ? "active" : ""}>
+            <span className="nav-icon">◈</span>
+            Finder
+          </Link>
+          <button onClick={() => signOut({ callbackUrl: "/login" })}>
+            <span className="nav-icon">⏻</span>
+            Logout
+          </button>
+        </nav>
+      )}
+
       <main className={`main-content ${!session ? "full-width" : ""}`}>
         {flash && (
           <div className="flash-container">
