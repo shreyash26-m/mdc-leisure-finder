@@ -1,0 +1,25 @@
+// prisma/schema.prisma
+// Replaces site.db (SQLite) with PostgreSQL (Supabase free tier)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Member {
+  id                  Int     @id @default(autoincrement())
+  name                String
+  reg_no              String  @unique
+  email               String
+  phone               String
+  domain              String
+  position            String
+  timetable_drive_link String?
+  timetable_json      String? // JSON string of {day: {slot: "Free"|"Occupied"}}
+  created_at          DateTime @default(now())
+  updated_at          DateTime @updatedAt
+}
