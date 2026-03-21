@@ -42,8 +42,9 @@ export default function Login() {
     <>
       <Head>
         <title>Admin Login - Leisure Finder Portal</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="icon" type="image/svg+xml" href="/mdc_logo.svg" />
+        <link rel="shortcut icon" href="/mdc_logo.svg" />
+        <link rel="stylesheet" href="/style.css" />
       </Head>
       <main className="main-content full-width">
         <div className="login-wrapper">
