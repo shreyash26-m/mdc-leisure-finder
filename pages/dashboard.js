@@ -138,7 +138,7 @@ export default function Dashboard({ total, domainStats, domainMembers, members }
   }, [domainMembers]);
 
   return (
-    <Layout title="Dashboard - Leisure Finder Portal">
+    <Layout title="Leisure Finder Portal">
 
       <div className="page-header dash-header">
         <div className="dash-header-left">

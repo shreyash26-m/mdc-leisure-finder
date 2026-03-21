@@ -72,7 +72,7 @@ export default function EditTimetable({ member, initialTimetable }) {
   }
 
   return (
-    <Layout title={`Timetable - ${member.name}`}>
+    <Layout title="Leisure Finder Portal">
 
       <div className="page-header">
         <div>

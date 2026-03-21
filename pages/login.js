@@ -41,7 +41,7 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Admin Login - Leisure Finder Portal</title>
+        <title>Leisure Finder Portal</title>
         <link rel="icon" type="image/svg+xml" href="/mdc_logo.svg" />
         <link rel="shortcut icon" href="/mdc_logo.svg" />
         <link rel="stylesheet" href="/style.css" />

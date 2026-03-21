@@ -65,7 +65,7 @@ export default function Finder() {
   const rows = buildTableRows();
 
   return (
-    <Layout title="Leisure Finder - Leisure Finder Portal">
+    <Layout title="Leisure Finder Portal">
       <div className="page-header">
         <div>
           <h1 className="page-title">Leisure Finder</h1>

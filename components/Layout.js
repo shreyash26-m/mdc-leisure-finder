@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { useEffect } from "react";
 
-export default function Layout({ children, title = "MDC Leisure Finder", flash }) {
+export default function Layout({ children, title = "Leisure Finder Portal", flash }) {
   const { data: session } = useSession();
   const router = useRouter();
   const ep = router.pathname;

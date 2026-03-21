@@ -73,7 +73,7 @@ export default function EditMember({ member }) {
   }
 
   return (
-    <Layout title={`Edit Member - ${member.name}`}>
+    <Layout title="Leisure Finder Portal">
 
       <div className="page-header">
         <div>

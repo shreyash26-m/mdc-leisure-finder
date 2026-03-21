@@ -62,7 +62,7 @@ export default function Members({ members }) {
   }
 
   return (
-    <Layout title="Members - Leisure Finder Portal">
+    <Layout title="Leisure Finder Portal">
 
       <div className="page-header">
         <div>
