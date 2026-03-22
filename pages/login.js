@@ -51,7 +51,7 @@ export default function Login() {
           <div className="login-card glass-card">
             <img src="/mdc_logo.svg" alt="MDC Logo" className="login-logo-img" />
             <h1 className="login-title">Leisure Finder Portal</h1>
-            <p className="login-subtitle">Meta Developers Communities</p>
+            <p className="login-subtitle">Meta Developer Communities</p>
 
             {error && <div className="flash flash-error">{error}</div>}
 

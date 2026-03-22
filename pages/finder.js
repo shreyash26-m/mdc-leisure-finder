@@ -147,9 +147,7 @@ export default function Finder() {
                   <thead>
                     <tr style={{ borderBottom:"2px solid var(--border,rgba(112,150,209,0.3))" }}>
                       <th style={thStyle}>Time Slot</th>
-                      <th style={thStyle}>Free Members</th>
-                      <th style={{ ...thStyle, width:"110px", textAlign:"center" }}>Availability</th>
-                      <th style={{ ...thStyle, width:"90px", textAlign:"center" }}>Status</th>
+                      <th style={{ ...thStyle, textAlign:"center" }}>Availability</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -161,90 +159,26 @@ export default function Finder() {
                             background: idx % 2 === 0 ? "rgba(112,150,209,0.04)" : "transparent" }}>
 
                           {/* Slot time */}
-                          <td style={{ ...tdStyle, fontWeight:700, fontSize:"0.95rem",
+                          <td style={{ ...tdStyle, fontWeight:700, fontSize:"1rem",
                             color:"var(--purple,#334EAC)", whiteSpace:"nowrap" }}>
                             {row.slot}
                           </td>
 
-                          {/* Member names */}
-                          <td style={{ ...tdStyle, lineHeight:1.7 }}>
-                            <div style={{ display:"flex", flexWrap:"wrap", gap:"6px" }}>
-                              {(expanded[row.slot] ? row.members : row.members.slice(0, 3)).map((m) => (
-                                <span key={m.id} style={{
-                                  display:"inline-flex", alignItems:"center", gap:"5px",
-                                  background:"rgba(112,150,209,0.12)",
-                                  border:"1px solid rgba(112,150,209,0.25)",
-                                  borderRadius:"20px", padding:"2px 10px",
-                                  fontSize:"0.8rem", color:"var(--text,#081F5C)", fontWeight:500
-                                }}>
-                                  <span style={{ width:18, height:18, borderRadius:"50%",
-                                    background:"var(--purple,#334EAC)", color:"#fff",
-                                    display:"inline-flex", alignItems:"center", justifyContent:"center",
-                                    fontSize:"0.65rem", fontWeight:700, flexShrink:0 }}>
-                                    {m.name[0].toUpperCase()}
-                                  </span>
-                                  {m.name}
-                                </span>
-                              ))}
-
-                              {/* Show more / show less toggle */}
-                              {row.members.length > 3 && !expanded[row.slot] && (
-                                <button onClick={() => setExpanded(e => ({ ...e, [row.slot]: true }))}
-                                  style={{ display:"inline-flex", alignItems:"center", gap:4,
-                                    background:"rgba(51,78,172,0.1)", border:"1px dashed rgba(51,78,172,0.4)",
-                                    borderRadius:"20px", padding:"2px 10px", fontSize:"0.78rem",
-                                    color:"var(--purple,#334EAC)", fontWeight:600, cursor:"pointer" }}>
-                                  ▼ {row.members.length - 3} more
-                                </button>
-                              )}
-                              {row.members.length > 3 && expanded[row.slot] && (
-                                <button onClick={() => setExpanded(e => ({ ...e, [row.slot]: false }))}
-                                  style={{ display:"inline-flex", alignItems:"center", gap:4,
-                                    background:"rgba(51,78,172,0.1)", border:"1px dashed rgba(51,78,172,0.4)",
-                                    borderRadius:"20px", padding:"2px 10px", fontSize:"0.78rem",
-                                    color:"var(--purple,#334EAC)", fontWeight:600, cursor:"pointer" }}>
-                                  ▲ Show less
-                                </button>
-                              )}
-
-                              {row.count < row.total && (
-                                <span style={{ fontSize:"0.78rem", color:"var(--text-2,#7096d1)",
-                                  alignSelf:"center", fontStyle:"italic" }}>
-                                  +{row.total - row.count} busy
-                                </span>
-                              )}
-                            </div>
-                          </td>
-
-                          {/* % bar */}
+                          {/* Availability — just the count */}
                           <td style={{ ...tdStyle, textAlign:"center" }}>
-                            <div style={{ fontSize:"0.8rem", fontWeight:600,
-                              color: pct === 100 ? "#10b981" : pct >= 60 ? "#f59e0b" : "#ef4444",
-                              marginBottom:4 }}>
-                              {pct}%
+                            <div style={{ fontSize:"1.6rem", fontWeight:700,
+                              color: pct === 100 ? "#10b981" : pct >= 60 ? "#f59e0b" : "#ef4444" }}>
+                              {row.count}
                             </div>
-                            <div style={{ height:6, borderRadius:3,
-                              background:"rgba(112,150,209,0.15)", overflow:"hidden" }}>
+                            <div style={{ fontSize:"0.75rem", color:"var(--text-2,#7096d1)", marginTop:2 }}>
+                              of {row.total} free
+                            </div>
+                            <div style={{ height:6, borderRadius:3, margin:"6px auto 0",
+                              maxWidth:80, background:"rgba(112,150,209,0.15)", overflow:"hidden" }}>
                               <div style={{ height:"100%", borderRadius:3, width:`${pct}%`,
                                 background: pct === 100 ? "#10b981" : pct >= 60 ? "#f59e0b" : "#ef4444",
                                 transition:"width 0.4s ease" }} />
                             </div>
-                            <div style={{ fontSize:"0.72rem", color:"var(--text-2)", marginTop:3 }}>
-                              {row.count}/{row.total} free
-                            </div>
-                          </td>
-
-                          {/* Badge */}
-                          <td style={{ ...tdStyle, textAlign:"center" }}>
-                            {row.tag === "common" && (
-                              <span style={badgeStyle("#10b981","rgba(16,185,129,0.12)")}>✓ All Free</span>
-                            )}
-                            {row.tag === "best" && (
-                              <span style={badgeStyle("#f59e0b","rgba(245,158,11,0.12)")}>🏆 Best</span>
-                            )}
-                            {row.tag === "alt" && (
-                              <span style={badgeStyle("#7096d1","rgba(112,150,209,0.12)")}>🔁 Alt</span>
-                            )}
                           </td>
                         </tr>
                       );
