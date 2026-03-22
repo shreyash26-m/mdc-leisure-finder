@@ -133,10 +133,10 @@ export default function Finder() {
                 <div className="result-banner-icon">{result.case === "A" ? "✓" : "◈"}</div>
                 <div>
                   <div className="result-label">
-                    {result.case === "A" ? "Common Free Time Found!" : "No full common slot — Best available:"}
+                    {result.case === "A" ? "Common Free Time Found!" : "No full common slot - Best available:"}
                   </div>
                   <div className="result-sub">
-                    {groupLabel} — {day} — {result.total_members} members
+                    {groupLabel} - {day} - {result.total_members} members
                   </div>
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function Finder() {
                             {row.slot}
                           </td>
 
-                          {/* Availability — just the count */}
+                          {/* Availability - just the count */}
                           <td style={{ ...tdStyle, textAlign:"center" }}>
                             <div style={{ fontSize:"1.6rem", fontWeight:700,
                               color: pct === 100 ? "#10b981" : pct >= 60 ? "#f59e0b" : "#ef4444" }}>
